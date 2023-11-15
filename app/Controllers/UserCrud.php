@@ -8,11 +8,11 @@ class UserCrud extends Controller
     public function index(){
         $userModel = new UserModel();
         $data['users'] = $userModel->orderBy('id', 'DESC')->findAll();
-        return view('user_view', $data);
+        return view('user_list', $data);
     }
     // add user form
     public function create(){
-        return view('add_user');
+        return view('user_add');
     }
  
     // insert data
@@ -29,7 +29,7 @@ class UserCrud extends Controller
     public function singleUser($id = null){
         $userModel = new UserModel();
         $data['user_obj'] = $userModel->where('id', $id)->first();
-        return view('edit_user', $data);
+        return view('user_edit', $data);
     }
     // update user data
     public function update(){
